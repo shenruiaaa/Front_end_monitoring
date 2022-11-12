@@ -1,0 +1,46 @@
+[
+	{
+		"historyTracker": false,
+		"hashTracker": false,
+		"domTracker": false,
+		"sdkVersion": "1.0.0",
+		"jsError": false,
+		"fp_Tracker": true,
+		"fcp_Tracker": true,
+		"requestUrl": "http://localhost:9000/tracker",
+		"event": "fp_Report",
+		"targetKey": "fp_entry",
+		"fp": {
+			"name": "first-paint",
+			"entryType": "paint",
+			"startTime": 1222.3999999985099,
+			"duration": 0
+		},
+		"time": 1660536157175
+	},
+	{
+		"historyTracker": false,
+		"hashTracker": false,
+		"domTracker": false,
+		"sdkVersion": "1.0.0",
+		"jsError": false,
+		"fp_Tracker": true,
+		"fcp_Tracker": true,
+		"requestUrl": "http://localhost:9000/tracker",
+		"event": "fcp_Report",
+		"targetKey": "fcp_entry",
+		"fp": {
+			"name": "first-paint",
+			"entryType": "paint",
+			"startTime": 1222.3999999985099,
+			"duration": 0
+		},
+		"time": 1660536157284,
+		"fcp": {
+			"name": "first-contentful-paint",
+			"entryType": "paint",
+			"startTime": 1222.3999999985099,
+			"duration": 0
+		}
+	}
+]

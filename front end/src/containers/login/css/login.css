@@ -1,0 +1,42 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+}
+
+body #root {
+    width: 100%;
+    height: 100%;
+}
+
+body #root .app {
+    width: 100%;
+    height: 100%;
+}
+
+.login {
+    width: 100%;
+    height: 100%;
+    background-image: url('../imgs/bg.jpg');
+}
+
+section {
+    width: 400px;
+    height: 300px;
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 30px;
+
+
+}
+
+h2 {
+    font-size: 25px;
+    text-align: center;
+}
+
+.login-form-button {
+    width: 100%;
+}
