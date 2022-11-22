@@ -37,6 +37,6 @@ export default [
     },
     {
         path: '/',
-        element: <Navigate to="/admin" />
+        element: <Navigate to="/login" />
     }
 ]

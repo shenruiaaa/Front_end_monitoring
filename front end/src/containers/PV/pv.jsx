@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
 import * as echarts from 'echarts';
-import axios from 'axios'
+
 
 
 import "./css/pv.css"
+import { reqPv } from '../../api';
 
 export default class Pic extends Component {
 
   componentDidMount() {
     var myChart = echarts.init(document.getElementById('main'));
-    axios.request({
-      method: 'GET',
-      url: 'http://localhost:9000/pageviews'
-    }).then(response => {
+    reqPv().then(response => {
       console.log(response);
       console.log(response.data)
       console.log(typeof response.data)

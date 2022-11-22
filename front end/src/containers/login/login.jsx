@@ -1,30 +1,43 @@
 import React, { Component } from 'react'
 import "./css/login.css"
 import myImg from '../admin/left_nav/css/good.png';
-import axios from 'axios';
+
+import { reqLogin } from '../../api/index'
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import { connect } from 'react-redux'
-import { createDemo1Action, createDemo2Action } from '../../redux/action_creators/test_action';
+import { createSaveUserInfoAction } from '../../redux/action_creators/login_action';
+@connect(
+  state => ({ isLogin: state.userInfo.isLogin }),
+  {
+    saveUserInfo: createSaveUserInfoAction,
+  }
+)
 class Login extends Component {
   componentDidMount() {
     console.log(this.props);
+
   }
   onFinish = (values) => {
     /*  event.preventDefault();//阻止默认事件，禁止form表单提交，通过ajax发送 */
+    const { username, password } = values
 
     alert('表单提交了')
-    axios.request({
-      url: 'http://localhost:9000/login',
-      method: 'POST',
-      data: {
-        "username": values.username,
-        "password": values.password,
-      }
-    }).then((response) => {
+    reqLogin(username, password).then((response) => {
       console.log(response);
+      const { status, msg, data } = response
+      if (status === 0) {
+        console.log(data)
+        //1.跳转admin页面
+        this.props.saveUserInfo(data)
 
+        window.location.href = "/admin"
+        //2.服务器返回的user信息们还有token交给redux管理
+        //this.props.history.replace('admin')
 
+      } else {
+        message.warning(msg, 1)
+      }
     }).catch((resaon) => {
       console.log(resaon)
     })
@@ -34,7 +47,10 @@ class Login extends Component {
     //3.发起登录请求
   }
   render() {
-
+    const { isLogin } = this.props;
+    if (isLogin) {
+      window.location.href = "/admin"
+    }
     return (
       <div className='login' >
         <header>
@@ -110,11 +126,5 @@ class Login extends Component {
   }
 }
 
-export default connect(
-  state => ({ test: state.test }),
-  {
-    demo1: createDemo1Action,
-    demo2: createDemo2Action,
-  }
-)(Login);
+export default Login
 

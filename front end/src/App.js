@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Admin from './containers/admin/admin'
-import Login from './containers/login/login'
 import { Route, Routes, useRoutes } from 'react-router-dom'
 import routes from './routes'
 import { Button, Divider } from 'antd'

@@ -13,6 +13,7 @@ let PV = [];
 
 app.use(cors());   //注入cros
 app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
 
 app.post('/tracker', (req, res) => {
 
@@ -61,6 +62,8 @@ app.get('/pageviews', (req, res) => {
 app.post('/login', (req, res) => {
 	res.send({
 		status: 0,
+		data: { user: { username: "admin" } },
+		msg: '成功！'
 	})
 })
 
